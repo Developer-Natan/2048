@@ -37,16 +37,28 @@ function setGame() {
 }
 
 function updateTile(tile, num) {
+  // Clear the tile content and reset the classList
   tile.innerText = "";
-  tile.classList.value = ""; //clear the classList
+  tile.classList.value = ""; // Clear all classes
+
+  // Add base tile class
   tile.classList.add("tile");
+
+  // Add the tile animation classes
+  tile.classList.add("tile-new"); // For smooth tile appearance
+  tile.classList.add("tile-new-bounce"); // For the bounce animation on the container
+
+  // Create the number element inside the tile
+  const numberElement = document.createElement("span");
+  numberElement.classList.add("tile-number");
+  numberElement.innerText = num > 0 ? num.toString() : ""; // Only set number if greater than 0
+
+  // Append the number to the tile
+  tile.appendChild(numberElement);
+
+  // Set the number in the tile and add its corresponding class for styling
   if (num > 0) {
-    tile.innerText = num.toString();
-    if (num <= 4096) {
-      tile.classList.add("x" + num.toString());
-    } else {
-      tile.classList.add("x8192");
-    }
+    tile.classList.add("x" + num.toString());
   }
 }
 

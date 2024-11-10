@@ -1,35 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rubik", Arial, system-ui, sans-serif;
   text-align: center;
+  background-color: #faf8f0;
+}
+/* Styling for the h1 element */
+h1 {
+  color: #756452;
+  font-size: 50px;
+  position: absolute; /* Use absolute positioning */
+  top: 20px; /* Adjust to your liking */
+  left: 20px; /* Adjust to your liking */
+  margin: 0;
+}
+p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+  font-size: 14px;
+  font-weight: bold;
+}
+span {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* Header container that holds the h1 and button */
+.header {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  position: relative; /* Needed to position the h1 absolutely */
 }
 
-hr {
-  width: 500px;
+/* Button containing the score information */
+.button {
+  display: flex; /* Ensures Flexbox behavior */
+
+  /* align-items: center; Centers items vertically inside button */
+
+  justify-content: center; /* Centers items horizontally inside button */
+  background-color: #eae7d9; /* Button background */
+  font-family: "Rubik", Arial, system-ui, sans-serif;
+  border-radius: 10%;
+  color: #988876;
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  /* Adds padding inside the button */
+}
+
+/* For the content inside the button (the score and label) */
+.button div {
+  display: flex;
+  padding: 5px 10px;
+  /* align-items: center; Aligns text and score vertically */
+  flex-direction: column;
 }
 
 #board {
   width: 400px;
-  height: 400px;
-
-  background-color: #cdc1b5;
-  border: 6px solid #bbada0;
-
-  margin: 0 auto;
+  height: 390px;
+  border-radius: 5%;
+  padding: 10px;
+  background-color: #9c8a7b;
+  justify-content: space-between;
+  margin: 40px auto;
   display: flex;
   flex-wrap: wrap;
 }
-
+/* Base tile appearance */
 .tile {
   width: 90px;
   height: 90px;
-  border: 5px solid #bbada0;
-
+  border-radius: 10%;
+  background-color: #bdac97;
   font-size: 40px;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: show 200ms ease-in-out;
+  opacity: 0; /* Start with tile hidden */
+  transform: scale(0); /* Start with tile scaled down */
   transition: 100ms ease-in-out;
 }
 
@@ -37,46 +90,48 @@ hr {
 
 .x2 {
   background-color: #eee4da;
-  color: #727371;
+  color: #756452;
+  animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+  transition: 200ms ease-in-out;
 }
 
 .x4 {
-  background-color: #ece0ca;
-  color: #727371;
+  background-color: #ebd8b6;
+  color: #756452;
 }
 
 .x8 {
-  background-color: #f4b17a;
+  background-color: #f2b076;
   color: white;
 }
 
 .x16 {
-  background-color: #f59575;
+  background-color: #f69461;
   color: white;
 }
 
 .x32 {
-  background-color: #f57c5f;
+  background-color: #f77d61;
   color: white;
 }
 
 .x64 {
-  background-color: #f65d3b;
+  background-color: #f76443;
   color: white;
 }
 
 .x128 {
-  background-color: #edce71;
+  background-color: #f2cf56;
   color: white;
 }
 
 .x256 {
-  background-color: #edcc63;
+  background-color: #f4cc48;
   color: white;
 }
 
 .x512 {
-  background-color: #edc651;
+  background-color: #f5d351;
   color: white;
 }
 
@@ -100,9 +155,54 @@ hr {
   color: white;
 }
 
+@keyframes bounce {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  25% {
+    transform: scale(1.1); /* Grow a bit */
+  }
+  50% {
+    transform: scale(1); /* Shrink a bit */
+  }
+  75% {
+    transform: scale(1.1); /* Grow a little more */
+  }
+  100% {
+    transform: scale(1); /* Final size */
+  }
+}
+
 @keyframes show {
   0% {
     opacity: 0.5;
     transform: scale(0);
+    background-color: #bdac97; /* Start with the initial background color */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    /* Change background color when the tile is fully shown */
+  }
+}
+/* Tile when it's new (after being created) */
+.tile-new {
+  animation: show 0.5s ease-out forwards; /* Show animation duration */
+}
+
+/* Apply bounce animation to the number */
+.tile-number {
+  display: inline-block;
+  font-size: 40px;
+  animation: bounce 0.5s ease-out;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  h1 {
+    display: none;
+  }
+  #board {
+    margin: 150px auto;
   }
 }
