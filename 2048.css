@@ -83,7 +83,7 @@ span {
   align-items: center;
   opacity: 0; /* Start with tile hidden */
   transform: scale(0); /* Start with tile scaled down */
-  transition: 100ms ease-in-out;
+  transition: 200ms ease-in-out;
 }
 
 /* colored tiles */
@@ -270,6 +270,7 @@ span {
 
   .x256 {
     background-color: #f4cc48;
+    font-size: 20px;
     color: white;
   }
 
