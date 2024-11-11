@@ -5,7 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2048</title>
     <link rel="stylesheet" href="./2048.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <script src="./2048.js"></script>
+    <style>
+      /* Hide controls on larger screens */
+      #controls {
+        display: none;
+      }
+      /* Only display controls on small screens */
+      @media (max-width: 768px) {
+        #controls {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          margin: 20px auto 0;
+          margin-top: 20px;
+          width: 110px;
+          height: 110px;
+        }
+
+        /* Style for each directional button */
+        #upBtn,
+        #downBtn,
+        #leftBtn,
+        #rightBtn {
+          font-size: 24px;
+          padding: 8px;
+          border: none;
+          cursor: pointer;
+          position: absolute;
+          background-color: #ffcc00;
+        }
+
+        /* Position buttons close together in a "box" layout */
+        #upBtn {
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        #downBtn {
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        #leftBtn {
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        #rightBtn {
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        /* Bold style for arrows */
+        .arrow {
+          font-weight: bold;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -20,5 +86,19 @@
     </div>
 
     <div id="board"></div>
+    <div id="controls">
+      <button id="downBtn">
+        <i class="material-icons">keyboard_arrow_down</i>
+      </button>
+      <button id="upBtn">
+        <i class="material-icons">keyboard_arrow_up</i>
+      </button>
+      <button id="leftBtn">
+        <i class="material-icons">keyboard_arrow_left</i>
+      </button>
+      <button id="rightBtn">
+        <i class="material-icons">keyboard_arrow_right</i>
+      </button>
+    </div>
   </body>
 </html>

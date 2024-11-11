@@ -241,68 +241,161 @@ span {
   .x4 {
     background-color: #ebd8b6;
     color: #756452;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x8 {
     background-color: #f2b076;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x16 {
     background-color: #f69461;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x32 {
     background-color: #f77d61;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x64 {
     background-color: #f76443;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x128 {
     background-color: #f2cf56;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x256 {
     background-color: #f4cc48;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x512 {
     background-color: #f5d351;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x1024 {
     background-color: #eec744;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x2048 {
     background-color: #ecc230;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x4096 {
     background-color: #fe3d3d;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
   }
 
   .x8192 {
     background-color: #ff2020;
     font-size: 20px;
     color: white;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
+  }
+  /* Hide controls on larger screens */
+  #controls {
+    display: none;
+  }
+  /* Only display controls on small screens */
+  @media (max-width: 768px) {
+    #controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      margin: 20px auto 0;
+      margin-top: 20px;
+      width: 110px;
+      height: 110px;
+    }
+
+    /* Style for each directional button */
+    #upBtn,
+    #downBtn,
+    #leftBtn,
+    #rightBtn {
+      font-size: 24px;
+      padding: 8px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      background-color: #ffcc00;
+    }
+
+    /* Position buttons close together in a "box" layout */
+    #upBtn {
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #downBtn {
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #leftBtn {
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #rightBtn {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    /* Bold style for arrows */
+    .arrow {
+      font-weight: bold;
+    }
+  }
+
+  /* Show controls only on screens smaller than 768px */
+  @media (max-width: 600px) {
+    #controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
   }
 
   @keyframes bounce {
