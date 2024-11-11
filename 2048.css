@@ -205,8 +205,138 @@ span {
   #board {
     margin: 150px auto;
   }
-  .header {
+  .tile {
+    width: 70px;
+    height: 70px;
+    border-radius: 10%;
+    background-color: #bdac97;
+    font-size: 40px;
+    font-weight: bold;
     display: flex;
     justify-content: center;
+    align-items: center;
+    opacity: 0; /* Start with tile hidden */
+    transform: scale(0); /* Start with tile scaled down */
+    transition: 100ms ease-in-out;
+  }
+  #board {
+    width: 300px;
+    height: 300px;
+    border-radius: 5%;
+    padding: 10px;
+    background-color: #9c8a7b;
+    justify-content: space-between;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .x2 {
+    background-color: #eee4da;
+    color: #756452;
+    animation: show 500ms ease-in-out; /* Apply show animation for appearance */
+    transition: 200ms ease-in-out;
+  }
+
+  .x4 {
+    background-color: #ebd8b6;
+    color: #756452;
+  }
+
+  .x8 {
+    background-color: #f2b076;
+    color: white;
+  }
+
+  .x16 {
+    background-color: #f69461;
+    color: white;
+  }
+
+  .x32 {
+    background-color: #f77d61;
+    color: white;
+  }
+
+  .x64 {
+    background-color: #f76443;
+    color: white;
+  }
+
+  .x128 {
+    background-color: #f2cf56;
+    color: white;
+  }
+
+  .x256 {
+    background-color: #f4cc48;
+    color: white;
+  }
+
+  .x512 {
+    background-color: #f5d351;
+    color: white;
+  }
+
+  .x1024 {
+    background-color: #eec744;
+    color: white;
+  }
+
+  .x2048 {
+    background-color: #ecc230;
+    color: white;
+  }
+
+  .x4096 {
+    background-color: #fe3d3d;
+    color: white;
+  }
+
+  .x8192 {
+    background-color: #ff2020;
+    color: white;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: scale(1); /* Initial scale */
+    }
+    25% {
+      transform: scale(1.1); /* Grow a bit */
+    }
+    50% {
+      transform: scale(1); /* Shrink a bit */
+    }
+    75% {
+      transform: scale(1.1); /* Grow a little more */
+    }
+    100% {
+      transform: scale(1); /* Final size */
+    }
+  }
+
+  @keyframes show {
+    0% {
+      opacity: 0.5;
+      transform: scale(0);
+      background-color: #bdac97; /* Start with the initial background color */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      /* Change background color when the tile is fully shown */
+    }
+  }
+  /* Tile when it's new (after being created) */
+  .tile-new {
+    animation: show 0.5s ease-out forwards; /* Show animation duration */
+  }
+
+  /* Apply bounce animation to the number */
+  .tile-number {
+    display: inline-block;
+    font-size: 40px;
+    animation: bounce 0.5s ease-out;
   }
 }
