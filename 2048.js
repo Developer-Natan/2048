@@ -61,6 +61,8 @@ function updateTile(tile, num) {
     tile.classList.add("x" + num.toString());
   }
 }
+let touchStartX = 0;
+let touchStartY = 0;
 
 document.addEventListener("keyup", (e) => {
   if (e.code == "ArrowLeft") {
@@ -76,6 +78,39 @@ document.addEventListener("keyup", (e) => {
     slideDown();
     setTwo();
   }
+  document.getElementById("score").innerText = score;
+});
+
+// Detect touch start and end for mobile swipe functionality
+document.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+});
+
+document.addEventListener("touchend", (e) => {
+  const touchEndX = e.changedTouches[0].clientX;
+  const touchEndY = e.changedTouches[0].clientY;
+
+  const diffX = touchEndX - touchStartX;
+  const diffY = touchEndY - touchStartY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    // Horizontal swipe
+    if (diffX > 0) {
+      slideRight();
+    } else {
+      slideLeft();
+    }
+  } else {
+    // Vertical swipe
+    if (diffY > 0) {
+      slideDown();
+    } else {
+      slideUp();
+    }
+  }
+
+  setTwo();
   document.getElementById("score").innerText = score;
 });
 
