@@ -265,6 +265,7 @@ span {
 
   .x128 {
     background-color: #f2cf56;
+    font-size: 20px;
     color: white;
   }
 
@@ -276,26 +277,31 @@ span {
 
   .x512 {
     background-color: #f5d351;
+    font-size: 20px;
     color: white;
   }
 
   .x1024 {
     background-color: #eec744;
+    font-size: 20px;
     color: white;
   }
 
   .x2048 {
     background-color: #ecc230;
+    font-size: 20px;
     color: white;
   }
 
   .x4096 {
     background-color: #fe3d3d;
+    font-size: 20px;
     color: white;
   }
 
   .x8192 {
     background-color: #ff2020;
+    font-size: 20px;
     color: white;
   }
 
