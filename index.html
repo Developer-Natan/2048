@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2048</title>
-    <link rel="stylesheet" href="./2048.css" />
+    <link rel="stylesheet" href="/css/2048.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -21,8 +21,32 @@
       #controls {
         display: none;
       }
+      a {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #756452;
+        padding: 10px 20px;
+        background-color: #eee4da;
+        border: 2px solid #756452;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #756452;
+        color: #fff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
       /* Only display controls on small screens */
       @media (max-width: 768px) {
+        a {
+          margin-top: 40px;
+        }
         #controls {
           display: flex;
           flex-direction: column;
@@ -91,6 +115,7 @@
     </div>
 
     <div id="board"></div>
+
     <div id="controls">
       <button id="downBtn">
         <i class="material-icons">keyboard_arrow_down</i>
@@ -105,5 +130,6 @@
         <i class="material-icons">keyboard_arrow_right</i>
       </button>
     </div>
+    <a href="/play/play.html">how to play</a>
   </body>
 </html>
